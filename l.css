@@ -1,0 +1,111 @@
+body{
+  
+  background-image: url('th.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+
+
+    height: 1020px;
+    width: 1020px;
+    margin-left: -8px;
+    margin-top: -19px;
+}
+
+
+.ook {
+  width: 1530px;
+  height: 100px;
+
+  margin-top:10px;
+  z-index: 10;
+  display: inline-flex;
+  gap: 50px;
+  background-color:lightslategray;
+  backdrop-filter: blur(10px);
+  opacity: 0.85;
+
+}
+
+button {
+  width: 170px;
+  height: 50px;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-size: small;
+  font-weight: bold;
+  background-color: black;
+  color: aqua;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;  
+  
+}
+
+
+
+.act:hover {
+  background-color: #2980b9;
+  color: #f0f0f0;
+  box-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe, 0 0 40px #00f2fe;
+}
+
+.act {
+  background-color: #1c2541;
+  height: 30px;
+  margin-top:20px;
+  color: #ffffff;
+  border: 1px solid #3a506b;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.2s, transform 0.1s;
+  justify-content: center;
+}
+
+h1{
+margin-left: 500px;
+margin-top: 300px;
+font-size: 50px;
+}
+p{
+  margin-left: 500px;
+  font-size: 30px;
+
+
+}
+p2{
+  margin-top:30px;
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; 
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+p3{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; 
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  margin-top: 54px;
+  margin-left:-120px ;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+}
+
+
+
+
+
+
