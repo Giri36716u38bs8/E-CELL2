@@ -19,6 +19,12 @@ const supportSchema = new mongoose.Schema({
 const orderSchema = new mongoose.Schema({
  orderNumber: { type: String, required: true, unique: true },
  email: { type: String, required: true },
+ items: [{
+ name: String,
+ price: Number,
+ qty: Number
+ }],
+ total: { type: Number, required: true },
  status: { type: String, default: 'Processing' },
  createdAt: { type: Date, default: Date.now }
 });
@@ -55,7 +61,6 @@ app.get('/api/products', async (req, res) => {
  res.status(500).json({ msg: 'err' });
  }
 });
-
 app.post('/api/register', async (req, res) => {
  const { email, pass } = req.body;
  if (!email || !pass) return res.status(400).json({ msg: 'email and pass required' });
@@ -81,7 +86,7 @@ app.post('/api/login', async (req, res) => {
  res.status(500).json({ msg: 'err' });
  }
 });
-// ---- Support tickets ----
+
 app.post('/api/support', async (req, res) => {
  const { name, message } = req.body;
  if (!name || !message) return res.status(400).json({ msg: 'name and message required' });
@@ -93,6 +98,20 @@ app.post('/api/support', async (req, res) => {
  }
 });
 
+app.post('/api/checkout', async (req, res) => {
+ const { email, items } = req.body;
+ if (!email || !items || items.length === 0) {
+ return res.status(400).json({ msg: 'email and at least one item are required' });
+ }
+ try {
+ const total = items.reduce((sum, i) => sum + (i.price * i.qty), 0);
+ const orderNumber = 'FLUX-' + Math.floor(100000 + Math.random() * 900000);
+ const order = await Order.create({ orderNumber, email, items, total });
+ res.status(201).json({ msg: 'order placed', orderNumber: order.orderNumber, total: order.total });
+ } catch (err) {
+ res.status(500).json({ msg: 'err' });
+ }
+});
 app.get('/api/orders/:orderNumber', async (req, res) => {
  try {
  const order = await Order.findOne({
