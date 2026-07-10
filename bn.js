@@ -1,4 +1,4 @@
-const API = 'https://onrender.com';
+const API ='https://e-cell2.onrender.com';;
 document.addEventListener('DOMContentLoaded', () => {
  const page = window.location.pathname.split('/').pop();
  if (page === 'shop.html') loadCatalog();
